@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# 11ty build output
+_site/
+
+# Sync-content state
+.cache/
+.content-ref
+src/content
+
+# Test coverage
+coverage/
+
+# Logs
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Editor / OS junk
+*.swp
+.DS_Store
