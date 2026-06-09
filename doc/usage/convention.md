@@ -104,6 +104,40 @@ design notes, commit messages, code comments.
 - Apply singular by default unless a plural form is genuinely more
   natural (rare).
 
+## File headers
+
+Every source and test file carries a header.
+Two-part format: a relative path comment, then a block comment with
+metadata.
+
+For JavaScript and other C-style comment languages:
+
+  ```js
+  // relative/path/from/root.js
+  /*
+   * Brief description of the module.
+   * Author: Marcus Grant
+   * Created: YYYY-MM-DD
+   * Revised: [YYYY-MM-DD, YYYY-MM-DD, ...]   (only on major revisions)
+   * License: GPL-3.0-or-later
+  */
+  ```
+
+For shell and other hash-comment languages:
+
+  ```sh
+#!/usr/bin/env bash
+# relative/path/from/root.sh
+#
+# Brief description of the script.
+# Author: Marcus Grant
+# Created: YYYY-MM-DD
+# License: GPL-3.0-or-later
+  ```
+
+The `Revised` line is added only when the file undergoes major revision.
+Dates are ISO 8601 (`YYYY-MM-DD`).
+
 ## Documentation standards
 
 Documentation describes the system, not the process behind its creation.
