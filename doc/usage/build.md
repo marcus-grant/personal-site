@@ -63,9 +63,6 @@ build: sync-content
 serve: sync-content
     npx @11ty/eleventy --serve
 
-deploy: build
-    ./script/deploy.sh
-
 test:
     node --test test/
 
@@ -111,22 +108,6 @@ Field semantics:
 The composer reads this file (when present) to answer "what was live
 on date X" and "what produced this build" queries.
 
-## Deploy to BunnyCDN
-
-Deploy pushes the contents of `_site/` to a BunnyCDN Storage zone.
-
-The deploy script (`script/deploy.sh`) uses BunnyCDN's storage API or
-rsync gateway to upload the build output.
-Authentication is via a BunnyCDN storage zone password, sourced from
-`password-store`.
-
-Deploy is a pure publish step.
-No build state is mutated; the script can be re-run safely if a previous
-run failed mid-upload.
-
-Hetzner object storage is not used.
-It does not currently work as a CDN origin.
-
 ## Local dev workflow
 
 Typical loop:
@@ -144,8 +125,7 @@ handles it.
 
 ## Composer takeover
 
-The current build pipeline runs in this repo.
-When the composer/deployer arrives, it takes over the orchestration.
+When the composer/deployer arrives, it handles deploy orchestration.
 
 - The composer manages the content cache.
 - The composer pins all three refs (content, renderer, theme).

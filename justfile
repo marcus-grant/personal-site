@@ -15,10 +15,6 @@ build: sync-content
 serve: sync-content
     npx @11ty/eleventy --serve
 
-# Build, then deploy to BunnyCDN.
-deploy: build
-    ./script/deploy.sh
-
 # Run the test suite.
 test:
     node --test test/
