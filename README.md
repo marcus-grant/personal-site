@@ -1,52 +1,28 @@
-# personal-site
+# personal-site-content
 
-The `11ty`-based renderer for [marcusgrant.se](https://marcusgrant.se).
-Reads markdown content from `personal-site-content`,
-produces static HTML, deploys to `BunnyCDN`.
+Markdown content for [marcusgrant.se](https://marcusgrant.se).
+Articles, notes, and colocated assets.
 
-This repo is the renderer only.
-Content lives in
-[`personal-site-content`](https://github.com/marcusgrant/personal-site-content)
-as its own repo.
-The renderer reads from a configurable path (`CONTENT_PATH`) so content and
-renderer can evolve independently.
+This repo is the durable artifact.
+Content is renderer-neutral: frontmatter and markdown bodies are not
+tied to any specific static site generator.
+The current renderer is
+[`personal-site`](https://github.com/marcusgrant/personal-site).
 
-## First look
+## Layout
 
-```bash
-# Clone both repos as siblings
-git clone git@github.com:marcusgrant/personal-site.git
-git clone git@github.com:marcusgrant/personal-site-content.git
-
-# Point the renderer at the content repo
-cd personal-site
-export CONTENT_PATH=../personal-site-content
-
-# Install dependencies, build the site
-npm install
-just build
-
-# Or run the dev server with live reload
-just serve
+```
+content/
+  article/<year>/<slug>/index.md
+  note/<year>/<month>/<id>.md
 ```
 
-Output lands in `_site/`.
+## Frontmatter schema
 
-## Documentation
-
-Project docs live in [`docs/`](./docs/).
-Start at [`docs/README.md`](./docs/README.md) for the index.
-
-- [`docs/design/`](./docs/design/)
-  - architecture, content contract, IndieWeb implementation, CSS posture.
-  - What this renderer is making.
-- [`docs/usage/`](./docs/usage/)
-  - sync-content script, 11ty config, deploy pipeline, conventions.
-  - How to run and develop it.
+See `doc/design/content-contract.md` in the renderer repo for the
+frontmatter schema, URL structure, and post types.
 
 ## License
 
-GPL-3.0. See [`LICENSE`](./LICENSE).
-
-Content lives in `personal-site-content` and
-is licensed separately under CC BY-NC 4.0.
+CC BY-NC 4.0.
+See [`LICENSE`](./LICENSE).

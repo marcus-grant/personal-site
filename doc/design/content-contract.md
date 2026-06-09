@@ -117,10 +117,13 @@ abc123.md
 
 ### Articles
 
-Folder-per-post (page-bundle layout).
-Markdown bodies reference colocated images with relative paths.
-Example: `![diagram](./diagram.png)`.
-Renderer-neutral; matches Hugo's native shape if the renderer ever swaps.
+Real articles live at `content/article/<year>/<slug>.md`.
+This spec will harden over time.
+Very likely we will be using [depo](https://github.com/marcus-grant/depo) to
+act as a affirmative refgerenced content store.
+Ideally in the future the renderer resolve `depo://` URIs correctly.
+Even potentially automatically uploading assets to depo and
+rewriting references on save.
 
 ### Notes
 
